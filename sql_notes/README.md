@@ -1,0 +1,61 @@
+# Notes
+
+- select firstname from Author WHERE firstname like 'R%'
+	- '%' is a wildcard
+- select title, pages from Book WHERE pages >= 290 AND pages <= 300
+	- WHERE pages between 290 and 300
+		- Values are inclusive
+		- Easier and quicker to write
+- select firstnam, lastname, country from Author
+	- WHERE country='AU' OR country='BR'
+	- WHERE country IN ('AU', 'BR')
+- order by clause
+	- select title from Book
+		- ORDER BY title 
+			- Default is ascending order
+		- ORDER BY title DESC
+			- Descending order
+	- You can also order by column index 
+		- ORDER BY 2
+			- Sorts by 2nd column
+- Eliminating duplicates
+	- select country from Author
+		- ORDER BY 1
+- SELECT column_names FROM table_name GROUP BY column_names HAVING condition
+- Built in Functions
+	- Most databases come with built-in SQL
+	- Reduce network bandwidth
+	- Aggregate or Column functions
+		- Sum(), Max(), Min(), ect.
+	- select SUM(Cost) from PetRescue
+	- select SUM(COST) as SUM_OF_COST from PETRESCUE
+	- select MAX(Quantity) from PETRESCUE
+	- select LENGTH(ANIMAL) from RESCUE
+	- UCASE, LCASE for lower case or upper case
+		- select * from PETRESCUE where LCASE(Animal) == "cat"
+		- select DISTINCT(UCASE(Animal)) where UCASE
+	- DATE and TIME
+		- DATE - 8
+		- TIME - 6
+		- TIMESTAMP - 20 digits
+		- select DAY(RESCUEDATE) from PETRESCUE where ANIMAL="Cat"
+- Sub queries and Nested Selects
+	- select COLUMN1 from TABLE where COLUMN2 = (select MAX(COLUMN2) from Table)
+	- One limitation of aggregate functions is that they can't always be evaluated in where class
+- Select EMP_ID, F_NAME, L_NAME, SALARY
+	- from employees where SALARY < (select AVG(Salary) from employees)
+- Subselect does not need to go in where clause
+	- It can go in column (Column Expression)
+		- Select EMPY_ID, SALARY, AVG(SALARY) as AVG_SALARY from employees
+- Substitute the TABLE name with a sub-query
+	- Called derived tables or table expressions
+- Working with multiple tables
+	- select * from employees where DEP_ID IN (select DEPT_ID_DEP from DEPARTMENTS)
+- select * from employees, departments
+	- Every row in the firs table is combiend with a row in the second table (Full Join)
+- Implicit Join: Select * from employees, departments where employees.DEP_ID = departments.DEPT_ID_DEP;
+	- select * from employees E, departments D where E.DEP_ID = D.DEPT_ID_DEP
+- select EMP_ID, DEP_NAME from employees E, departments D where E.DEP_ID = D.DEPT_ID_DEP
+
+# Sources:
+1) https://www.coursera.org/learn/sql-data-science/home/module/4
