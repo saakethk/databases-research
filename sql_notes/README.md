@@ -1,5 +1,4 @@
 # Notes
-
 - select firstname from Author WHERE firstname like 'R%'
 	- '%' is a wildcard
 - select title, pages from Book WHERE pages >= 290 AND pages <= 300

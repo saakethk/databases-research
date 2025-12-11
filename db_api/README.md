@@ -1,0 +1,45 @@
+# Notes
+- Most database providers have their own API
+  - However the python db-api is designed to work with any relational database and is therefore more portable.
+- Connection methods
+  - Connect constructor
+  - .cursor()
+  - .commit()
+  - .rollback()
+  - .close()
+- Cursor
+  - .callproc()
+  - .execute()
+  - .executemany()
+  - .fetchone()
+  - .fetchmany()
+  - .fetchall()
+  - .nextset()
+  - .arraysize()
+  - .close()
+- Database cursor
+  - Enables transversal
+  - Database closes cursor access
+  - A cursor keeps track of the current position in query results
+- You can use pandas to read sql queries directly into pandas dataframes
+- SQLite is a self-contained, serverless, transactional database engine
+- Magic commands
+  - Exclusive to Jupyter Notebooks
+  - Line Magics - Prefixed with %
+  - Cell Magics - Prefixed with %%
+  - %pwd - prints current workign directory
+  - %ls - lists all files in current directory
+  - %history - shows command history
+  - %reset - resets namespace by removing all names defined by user
+  - %who
+  - ect.
+  - %%writefile myfile.txt
+  - %%HTML - allows you to render html code
+  - %%javascript
+  - %%bash - can do echo, ect.
+- SQL Magic reuqires
+  - !pip install --user ipython-sql
+  - %load_ext sql
+
+# Sources:
+1) https://www.coursera.org/learn/sql-data-science/home/module/4
